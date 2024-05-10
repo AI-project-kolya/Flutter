@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
+import 'package:price_predictor_app/core/utils/app_router.dart';
 import 'package:price_predictor_app/core/utils/asset.dart';
 import 'package:price_predictor_app/features/splash/presentation/views/widgets/sliding_text.dart';
 
@@ -55,6 +57,8 @@ class _SplashViewBodyState extends State<SplashViewBody>
   }
 
   void navigateToHome() {
-    Future.delayed(const Duration(seconds: 3), () {});
+    Future.delayed(const Duration(seconds: 3), () {
+      GoRouter.of(context).pushReplacement(AppRouter.kFirstViewViewPath);
+    });
   }
 }
