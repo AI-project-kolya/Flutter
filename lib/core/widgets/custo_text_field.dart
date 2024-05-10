@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
   final TextInputType? keyboardType;
-  final String hintText;
+  final String? labelText;
+
   final bool? isSecure;
   final Function(String?)? onChanged;
   const CustomTextField(
       {this.keyboardType,
       this.isSecure,
       this.onChanged,
-      required this.hintText,
-      super.key});
+      super.key,
+      required this.labelText});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class CustomTextField extends StatelessWidget {
         },
         onChanged: onChanged,
         decoration: InputDecoration(
-            hintText: hintText,
+            labelText: labelText,
             hintStyle: const TextStyle(color: Colors.black),
             border: const OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.black)),

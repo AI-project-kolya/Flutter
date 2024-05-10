@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:price_predictor_app/core/utils/app_router.dart';
 import 'package:price_predictor_app/core/utils/styles.dart';
 import 'package:price_predictor_app/core/widgets/custo_text_field.dart';
 import 'package:price_predictor_app/core/widgets/custom_buttom.dart';
 import 'package:price_predictor_app/core/widgets/custom_text.dart';
 
-class FirstViewBody extends StatefulWidget {
-  const FirstViewBody({super.key});
+class SecondViewBody extends StatefulWidget {
+  const SecondViewBody({super.key});
 
   @override
-  State<FirstViewBody> createState() => _FirstViewBodyState();
+  State<SecondViewBody> createState() => _SecondViewBodyState();
 }
 
-class _FirstViewBodyState extends State<FirstViewBody> {
+class _SecondViewBodyState extends State<SecondViewBody> {
   String? groupValue1 = 'YesOrNo';
   String? groupValue2 = 'YesOrNo';
   GlobalKey<FormState> mykey = GlobalKey<FormState>();
@@ -31,18 +29,22 @@ class _FirstViewBodyState extends State<FirstViewBody> {
               height: MediaQuery.of(context).size.height * 0.1,
             ),
             const CustomText(
-              content: 'First',
+              content: 'Second',
             ),
             const CustomTextField(
-              labelText: 'Battery Power',
+              labelText: 'Internal Memory',
               keyboardType: TextInputType.number,
             ),
             const CustomTextField(
-              labelText: 'Clock Speed',
+              labelText: 'Mobile Depth in cm',
               keyboardType: TextInputType.number,
             ),
             const CustomTextField(
-              labelText: 'Front Camera mega pixel',
+              labelText: 'Weight of mobile phone',
+              keyboardType: TextInputType.number,
+            ),
+            const CustomTextField(
+              labelText: 'Number of cores of processor',
               keyboardType: TextInputType.number,
             ),
             Column(
@@ -52,7 +54,7 @@ class _FirstViewBodyState extends State<FirstViewBody> {
                   height: 20,
                 ),
                 const Text(
-                  'Has bluetooth or not',
+                  'Has 4G or not',
                   style: Styles.textStyle16,
                 ),
                 Row(
@@ -76,44 +78,6 @@ class _FirstViewBodyState extends State<FirstViewBody> {
                         onChanged: (val) {
                           setState(() {
                             groupValue1 = val;
-                          });
-                        }),
-                    const Text('No'),
-                  ],
-                ),
-              ],
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(
-                  height: 20,
-                ),
-                const Text(
-                  'Has dual sim support or not',
-                  style: Styles.textStyle16,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Radio(
-                        value: 'Yes',
-                        groupValue: groupValue2,
-                        onChanged: (val) {
-                          setState(() {
-                            groupValue2 = val;
-                          });
-                        }),
-                    const Text('Yes'),
-                    const SizedBox(
-                      width: 30,
-                    ),
-                    Radio(
-                        value: 'No',
-                        groupValue: groupValue2,
-                        onChanged: (val) {
-                          setState(() {
-                            groupValue2 = val;
                           });
                         }),
                     const Text('No'),
@@ -127,10 +91,7 @@ class _FirstViewBodyState extends State<FirstViewBody> {
             CustomButtom(
               textButtom: 'Next',
               onTap: () {
-                if (mykey.currentState!.validate()) {
-                  GoRouter.of(context)
-                      .pushReplacement(AppRouter.kSecondViewViewPath);
-                }
+                if (mykey.currentState!.validate()) {}
               },
             )
           ],
