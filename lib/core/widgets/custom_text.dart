@@ -16,8 +16,10 @@ class CustomText extends StatelessWidget {
       child: Align(
           alignment: Alignment.centerLeft,
           child: Text(
-            '$content Step : ',
-            style: Styles.textStyle30,
+            'Enter $content features : ',
+            style: Styles.textStyle30.copyWith(
+              fontSize: 24
+            ),
           )),
     );
   }

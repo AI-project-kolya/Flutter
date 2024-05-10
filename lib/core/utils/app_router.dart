@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:price_predictor_app/features/home/presentation/views/first_view.dart';
 import 'package:price_predictor_app/features/home/presentation/views/fourth_view.dart';
+import 'package:price_predictor_app/features/home/presentation/views/home_view.dart';
 import 'package:price_predictor_app/features/home/presentation/views/output_view.dart';
 import 'package:price_predictor_app/features/home/presentation/views/second_view.dart';
 import 'package:price_predictor_app/features/home/presentation/views/third_view.dart';
@@ -13,6 +14,7 @@ abstract class AppRouter {
   static const kThirdViewViewPath = '/thirdview';
   static const kFourthViewViewPath = '/fourthview';
   static const kOutPutViewViewPath = '/outputview';
+  static const kHomeViewViewPath = '/homeview';
 
   static final goRouter = GoRouter(routes: [
     GoRoute(
@@ -38,6 +40,10 @@ abstract class AppRouter {
     GoRoute(
       path: kOutPutViewViewPath,
       builder: (context, state) => const OutPutView(),
+    ),
+    GoRoute(
+      path: kHomeViewViewPath,
+      builder: (context, state) => const HomeView(),
     ),
   ]);
 }

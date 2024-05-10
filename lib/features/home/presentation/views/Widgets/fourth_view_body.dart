@@ -98,7 +98,7 @@ class _FourthViewBodyState extends State<FourthViewBody> {
                   children: [
                     Radio(
                         value: 'Yes',
-                        groupValue: groupValue1,
+                        groupValue: groupValue2,
                         onChanged: (val) {
                           setState(() {
                             groupValue2 = val;
@@ -110,7 +110,7 @@ class _FourthViewBodyState extends State<FourthViewBody> {
                     ),
                     Radio(
                         value: 'No',
-                        groupValue: groupValue1,
+                        groupValue: groupValue2,
                         onChanged: (val) {
                           setState(() {
                             groupValue2 = val;
