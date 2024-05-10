@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:price_predictor_app/core/utils/app_router.dart';
 import 'package:price_predictor_app/core/utils/styles.dart';
 import 'package:price_predictor_app/core/widgets/custo_text_field.dart';
 import 'package:price_predictor_app/core/widgets/custom_buttom.dart';
 import 'package:price_predictor_app/core/widgets/custom_text.dart';
 
-class SecondViewBody extends StatefulWidget {
-  const SecondViewBody({super.key});
+class ThirdViewBody extends StatefulWidget {
+  const ThirdViewBody({super.key});
 
   @override
-  State<SecondViewBody> createState() => _SecondViewBodyState();
+  State<ThirdViewBody> createState() => _ThirdViewBodyState();
 }
 
-class _SecondViewBodyState extends State<SecondViewBody> {
+class _ThirdViewBodyState extends State<ThirdViewBody> {
   String? groupValue1 = 'YesOrNo';
   String? groupValue2 = 'YesOrNo';
   GlobalKey<FormState> mykey = GlobalKey<FormState>();
@@ -31,22 +29,22 @@ class _SecondViewBodyState extends State<SecondViewBody> {
               height: MediaQuery.of(context).size.height * 0.1,
             ),
             const CustomText(
-              content: 'Second',
+              content: 'Third',
             ),
             const CustomTextField(
-              labelText: 'Internal Memory',
+              labelText: 'Primary Camera mega pixels',
               keyboardType: TextInputType.number,
             ),
             const CustomTextField(
-              labelText: 'Mobile Depth in cm',
+              labelText: 'Pixel Resolution Height',
               keyboardType: TextInputType.number,
             ),
             const CustomTextField(
-              labelText: 'Weight of mobile phone',
+              labelText: 'Pixel Resolution Width',
               keyboardType: TextInputType.number,
             ),
             const CustomTextField(
-              labelText: 'Number of cores of processor',
+              labelText: 'Random Access Memory',
               keyboardType: TextInputType.number,
             ),
             Column(
@@ -56,7 +54,7 @@ class _SecondViewBodyState extends State<SecondViewBody> {
                   height: 20,
                 ),
                 const Text(
-                  'Has 4G or not',
+                  'Has 3G or not',
                   style: Styles.textStyle16,
                 ),
                 Row(
@@ -93,10 +91,7 @@ class _SecondViewBodyState extends State<SecondViewBody> {
             CustomButtom(
               textButtom: 'Next',
               onTap: () {
-                if (mykey.currentState!.validate()) {
-                  GoRouter.of(context)
-                      .pushReplacement(AppRouter.kThirdViewViewPath);
-                }
+                if (mykey.currentState!.validate()) {}
               },
             )
           ],
