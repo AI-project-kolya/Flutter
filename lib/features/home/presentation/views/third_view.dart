@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:price_predictor_app/features/home/presentation/views/Widgets/third_view_body.dart';
+import 'package:price_predictor_app/features/Home/presentation/views/Widgets/third_view_body.dart';
 
 class ThirdView extends StatelessWidget {
   const ThirdView({super.key});

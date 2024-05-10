@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:price_predictor_app/features/home/presentation/views/Widgets/fourth_view_body.dart';
+import 'package:price_predictor_app/features/Home/presentation/views/Widgets/fourth_view_body.dart';
 
 class FourthView extends StatelessWidget {
   const FourthView({super.key});

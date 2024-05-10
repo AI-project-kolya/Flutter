@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:price_predictor_app/core/utils/app_router.dart';
 import 'package:price_predictor_app/core/utils/styles.dart';
 import 'package:price_predictor_app/core/widgets/custo_text_field.dart';
 import 'package:price_predictor_app/core/widgets/custom_buttom.dart';
@@ -99,7 +101,7 @@ class _FourthViewBodyState extends State<FourthViewBody> {
                         groupValue: groupValue1,
                         onChanged: (val) {
                           setState(() {
-                            groupValue1 = val;
+                            groupValue2 = val;
                           });
                         }),
                     const Text('Yes'),
@@ -111,7 +113,7 @@ class _FourthViewBodyState extends State<FourthViewBody> {
                         groupValue: groupValue1,
                         onChanged: (val) {
                           setState(() {
-                            groupValue1 = val;
+                            groupValue2 = val;
                           });
                         }),
                     const Text('No'),
@@ -125,7 +127,10 @@ class _FourthViewBodyState extends State<FourthViewBody> {
             CustomButtom(
               textButtom: 'Finish',
               onTap: () {
-                if (mykey.currentState!.validate()) {}
+                if (mykey.currentState!.validate()) {
+                  GoRouter.of(context)
+                      .pushReplacement(AppRouter.kOutPutViewViewPath);
+                }
               },
             )
           ],

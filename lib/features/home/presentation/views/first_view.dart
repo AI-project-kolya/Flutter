@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:price_predictor_app/features/home/presentation/views/Widgets/first_view_body.dart';
+import 'package:price_predictor_app/features/Home/presentation/views/Widgets/first_view_body.dart';
 
 class FirstView extends StatelessWidget {
   const FirstView({super.key});
