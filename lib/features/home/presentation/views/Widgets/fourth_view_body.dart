@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:price_predictor_app/core/utils/app_router.dart';
 import 'package:price_predictor_app/core/utils/styles.dart';
 import 'package:price_predictor_app/core/widgets/custo_text_field.dart';
 import 'package:price_predictor_app/core/widgets/custom_buttom.dart';
 import 'package:price_predictor_app/core/widgets/custom_text.dart';
 
-class ThirdViewBody extends StatefulWidget {
-  const ThirdViewBody({super.key});
+class FourthViewBody extends StatefulWidget {
+  const FourthViewBody({super.key});
 
   @override
-  State<ThirdViewBody> createState() => _ThirdViewBodyState();
+  State<FourthViewBody> createState() => _FourthViewBodyState();
 }
 
-class _ThirdViewBodyState extends State<ThirdViewBody> {
+class _FourthViewBodyState extends State<FourthViewBody> {
   String? groupValue1 = 'YesOrNo';
   String? groupValue2 = 'YesOrNo';
   GlobalKey<FormState> mykey = GlobalKey<FormState>();
@@ -31,22 +29,18 @@ class _ThirdViewBodyState extends State<ThirdViewBody> {
               height: MediaQuery.of(context).size.height * 0.1,
             ),
             const CustomText(
-              content: 'Third',
+              content: 'Fourth',
             ),
             const CustomTextField(
-              labelText: 'Primary Camera mega pixels',
+              labelText: 'Screen Height of mobile in cm',
               keyboardType: TextInputType.number,
             ),
             const CustomTextField(
-              labelText: 'Pixel Resolution Height',
+              labelText: 'Screen Width of mobile in cm',
               keyboardType: TextInputType.number,
             ),
             const CustomTextField(
-              labelText: 'Pixel Resolution Width',
-              keyboardType: TextInputType.number,
-            ),
-            const CustomTextField(
-              labelText: 'Random Access Memory',
+              labelText: 'Talk Time',
               keyboardType: TextInputType.number,
             ),
             Column(
@@ -56,7 +50,45 @@ class _ThirdViewBodyState extends State<ThirdViewBody> {
                   height: 20,
                 ),
                 const Text(
-                  'Has 3G or not',
+                  'Has touch screen or not',
+                  style: Styles.textStyle16,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Radio(
+                        value: 'Yes',
+                        groupValue: groupValue1,
+                        onChanged: (val) {
+                          setState(() {
+                            groupValue1 = val;
+                          });
+                        }),
+                    const Text('Yes'),
+                    const SizedBox(
+                      width: 30,
+                    ),
+                    Radio(
+                        value: 'No',
+                        groupValue: groupValue1,
+                        onChanged: (val) {
+                          setState(() {
+                            groupValue1 = val;
+                          });
+                        }),
+                    const Text('No'),
+                  ],
+                ),
+              ],
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  height: 20,
+                ),
+                const Text(
+                  'Has wifi or not',
                   style: Styles.textStyle16,
                 ),
                 Row(
@@ -91,12 +123,9 @@ class _ThirdViewBodyState extends State<ThirdViewBody> {
               height: 20,
             ),
             CustomButtom(
-              textButtom: 'Next',
+              textButtom: 'Finish',
               onTap: () {
-                if (mykey.currentState!.validate()) {
-                  GoRouter.of(context)
-                      .pushReplacement(AppRouter.kFourthViewViewPath);
-                }
+                if (mykey.currentState!.validate()) {}
               },
             )
           ],
