@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:price_predictor_app/core/utils/app_router.dart';
 import 'package:price_predictor_app/core/utils/styles.dart';
 import 'package:price_predictor_app/core/widgets/custo_text_field.dart';
 import 'package:price_predictor_app/core/widgets/custom_buttom.dart';
 import 'package:price_predictor_app/core/widgets/custom_text.dart';
+import 'package:price_predictor_app/features/home/presentation/view_models/cubit/get_price_cubit.dart';
 
 class SecondViewBody extends StatefulWidget {
   const SecondViewBody({super.key});
@@ -33,19 +35,30 @@ class _SecondViewBodyState extends State<SecondViewBody> {
             const CustomText(
               content: 'Second',
             ),
-            const CustomTextField(
+            CustomTextField(
               labelText: 'Internal Memory',
+              min: 2.0,
+              max: 65.0,
+              onChanged: (val) {
+                BlocProvider.of<GetPriceCubit>(context).initMemory = val;
+              },
               keyboardType: TextInputType.number,
             ),
-            const CustomTextField(
-              labelText: 'Mobile Depth in cm',
-              keyboardType: TextInputType.number,
-            ),
-            const CustomTextField(
+            CustomTextField(
+              max: 200.0,
+              min: 80.0,
+              onChanged: (val) {
+                BlocProvider.of<GetPriceCubit>(context).mobileWt = val;
+              },
               labelText: 'Weight of mobile phone',
               keyboardType: TextInputType.number,
             ),
-            const CustomTextField(
+            CustomTextField(
+              min: 1.0,
+              max: 8.0,
+              onChanged: (val) {
+                BlocProvider.of<GetPriceCubit>(context).nCores = val;
+              },
               labelText: 'Number of cores of processor',
               keyboardType: TextInputType.number,
             ),
@@ -63,11 +76,12 @@ class _SecondViewBodyState extends State<SecondViewBody> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Radio(
-                        value: 'Yes',
+                        value: '1',
                         groupValue: groupValue1,
                         onChanged: (val) {
                           setState(() {
                             groupValue1 = val;
+                            BlocProvider.of<GetPriceCubit>(context).fourG = val;
                           });
                         }),
                     const Text('Yes'),
@@ -75,11 +89,12 @@ class _SecondViewBodyState extends State<SecondViewBody> {
                       width: 30,
                     ),
                     Radio(
-                        value: 'No',
+                        value: '0',
                         groupValue: groupValue1,
                         onChanged: (val) {
                           setState(() {
                             groupValue1 = val;
+                            BlocProvider.of<GetPriceCubit>(context).fourG = val;
                           });
                         }),
                     const Text('No'),

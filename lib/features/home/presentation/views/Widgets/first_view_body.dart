@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:price_predictor_app/core/utils/app_router.dart';
 import 'package:price_predictor_app/core/utils/styles.dart';
 import 'package:price_predictor_app/core/widgets/custo_text_field.dart';
 import 'package:price_predictor_app/core/widgets/custom_buttom.dart';
 import 'package:price_predictor_app/core/widgets/custom_text.dart';
+import 'package:price_predictor_app/features/home/presentation/view_models/cubit/get_price_cubit.dart';
 
 class FirstViewBody extends StatefulWidget {
   const FirstViewBody({super.key});
@@ -33,16 +35,22 @@ class _FirstViewBodyState extends State<FirstViewBody> {
             const CustomText(
               content: 'First',
             ),
-            const CustomTextField(
+            CustomTextField(
+              min: 500.0,
+              max: 2000.0,
               labelText: 'Battery Power',
               keyboardType: TextInputType.number,
+              onChanged: (value) {
+                BlocProvider.of<GetPriceCubit>(context).batteryPower = value;
+              },
             ),
-            const CustomTextField(
+            CustomTextField(
+              min: 0.5,
+              max: 3.0,
+              onChanged: (value) {
+                BlocProvider.of<GetPriceCubit>(context).clockSpeed = value;
+              },
               labelText: 'Clock Speed',
-              keyboardType: TextInputType.number,
-            ),
-            const CustomTextField(
-              labelText: 'Front Camera mega pixel',
               keyboardType: TextInputType.number,
             ),
             Column(
@@ -59,11 +67,12 @@ class _FirstViewBodyState extends State<FirstViewBody> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Radio(
-                        value: 'Yes',
+                        value: '1',
                         groupValue: groupValue1,
                         onChanged: (val) {
                           setState(() {
                             groupValue1 = val;
+                            BlocProvider.of<GetPriceCubit>(context).blue = val;
                           });
                         }),
                     const Text('Yes'),
@@ -71,11 +80,12 @@ class _FirstViewBodyState extends State<FirstViewBody> {
                       width: 30,
                     ),
                     Radio(
-                        value: 'No',
+                        value: '0',
                         groupValue: groupValue1,
                         onChanged: (val) {
                           setState(() {
                             groupValue1 = val;
+                            BlocProvider.of<GetPriceCubit>(context).blue = val;
                           });
                         }),
                     const Text('No'),
@@ -97,11 +107,12 @@ class _FirstViewBodyState extends State<FirstViewBody> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Radio(
-                        value: 'Yes',
+                        value: '1',
                         groupValue: groupValue2,
                         onChanged: (val) {
                           setState(() {
                             groupValue2 = val;
+                            BlocProvider.of<GetPriceCubit>(context).blue = val;
                           });
                         }),
                     const Text('Yes'),
@@ -109,11 +120,12 @@ class _FirstViewBodyState extends State<FirstViewBody> {
                       width: 30,
                     ),
                     Radio(
-                        value: 'No',
+                        value: '0',
                         groupValue: groupValue2,
                         onChanged: (val) {
                           setState(() {
                             groupValue2 = val;
+                            BlocProvider.of<GetPriceCubit>(context).blue = val;
                           });
                         }),
                     const Text('No'),

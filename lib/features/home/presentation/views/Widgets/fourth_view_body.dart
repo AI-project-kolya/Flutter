@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:price_predictor_app/core/utils/app_router.dart';
 import 'package:price_predictor_app/core/utils/styles.dart';
 import 'package:price_predictor_app/core/widgets/custo_text_field.dart';
 import 'package:price_predictor_app/core/widgets/custom_buttom.dart';
 import 'package:price_predictor_app/core/widgets/custom_text.dart';
+import 'package:price_predictor_app/features/home/presentation/view_models/cubit/get_price_cubit.dart';
 
 class FourthViewBody extends StatefulWidget {
   const FourthViewBody({super.key});
@@ -33,16 +35,22 @@ class _FourthViewBodyState extends State<FourthViewBody> {
             const CustomText(
               content: 'Fourth',
             ),
-            const CustomTextField(
+            CustomTextField(
+              min: 5.0,
+              max: 20.0,
+              onChanged: (val) {
+                BlocProvider.of<GetPriceCubit>(context).scH = val;
+              },
               labelText: 'Screen Height of mobile in cm',
               keyboardType: TextInputType.number,
             ),
-            const CustomTextField(
+            CustomTextField(
+              min: 0.0,
+              max: 19.0,
+              onChanged: (val) {
+                BlocProvider.of<GetPriceCubit>(context).scW = val;
+              },
               labelText: 'Screen Width of mobile in cm',
-              keyboardType: TextInputType.number,
-            ),
-            const CustomTextField(
-              labelText: 'Talk Time',
               keyboardType: TextInputType.number,
             ),
             Column(
@@ -59,11 +67,13 @@ class _FourthViewBodyState extends State<FourthViewBody> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Radio(
-                        value: 'Yes',
+                        value: '1',
                         groupValue: groupValue1,
                         onChanged: (val) {
                           setState(() {
                             groupValue1 = val;
+                            BlocProvider.of<GetPriceCubit>(context)
+                                .touchScreen = val;
                           });
                         }),
                     const Text('Yes'),
@@ -71,11 +81,13 @@ class _FourthViewBodyState extends State<FourthViewBody> {
                       width: 30,
                     ),
                     Radio(
-                        value: 'No',
+                        value: '0',
                         groupValue: groupValue1,
                         onChanged: (val) {
                           setState(() {
                             groupValue1 = val;
+                            BlocProvider.of<GetPriceCubit>(context)
+                                .touchScreen = val;
                           });
                         }),
                     const Text('No'),
@@ -97,11 +109,12 @@ class _FourthViewBodyState extends State<FourthViewBody> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Radio(
-                        value: 'Yes',
+                        value: '1',
                         groupValue: groupValue2,
                         onChanged: (val) {
                           setState(() {
                             groupValue2 = val;
+                            BlocProvider.of<GetPriceCubit>(context).wifi = val;
                           });
                         }),
                     const Text('Yes'),
@@ -109,11 +122,12 @@ class _FourthViewBodyState extends State<FourthViewBody> {
                       width: 30,
                     ),
                     Radio(
-                        value: 'No',
+                        value: '0',
                         groupValue: groupValue2,
                         onChanged: (val) {
                           setState(() {
                             groupValue2 = val;
+                            BlocProvider.of<GetPriceCubit>(context).wifi = val;
                           });
                         }),
                     const Text('No'),
@@ -126,10 +140,10 @@ class _FourthViewBodyState extends State<FourthViewBody> {
             ),
             CustomButtom(
               textButtom: 'Finish',
-              onTap: () {
+              onTap: () async {
                 if (mykey.currentState!.validate()) {
-                  GoRouter.of(context)
-                      .pushReplacement(AppRouter.kOutPutViewViewPath);
+                  await BlocProvider.of<GetPriceCubit>(context).getPrice();
+                  navigatetoOutputscreen(context);
                 }
               },
             )
@@ -137,5 +151,9 @@ class _FourthViewBodyState extends State<FourthViewBody> {
         ),
       ),
     );
+  }
+
+  Future<void> navigatetoOutputscreen(context) async {
+    GoRouter.of(context).pushReplacement(AppRouter.kOutPutViewViewPath);
   }
 }
