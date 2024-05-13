@@ -41,14 +41,14 @@ class _FirstViewBodyState extends State<FirstViewBody> {
               labelText: 'Battery Power',
               keyboardType: TextInputType.number,
               onChanged: (value) {
-                BlocProvider.of<GetPriceCubit>(context).batteryPower = value;
+                BlocProvider.of<GetPriceCubit>(context).batteryPower = value.toString();
               },
             ),
             CustomTextField(
               min: 0.5,
               max: 3.0,
               onChanged: (value) {
-                BlocProvider.of<GetPriceCubit>(context).clockSpeed = value;
+                BlocProvider.of<GetPriceCubit>(context).clockSpeed = value.toString();
               },
               labelText: 'Clock Speed',
               keyboardType: TextInputType.number,
@@ -72,7 +72,7 @@ class _FirstViewBodyState extends State<FirstViewBody> {
                         onChanged: (val) {
                           setState(() {
                             groupValue1 = val;
-                            BlocProvider.of<GetPriceCubit>(context).blue = val;
+                            BlocProvider.of<GetPriceCubit>(context).blue = val.toString();
                           });
                         }),
                     const Text('Yes'),
@@ -85,7 +85,7 @@ class _FirstViewBodyState extends State<FirstViewBody> {
                         onChanged: (val) {
                           setState(() {
                             groupValue1 = val;
-                            BlocProvider.of<GetPriceCubit>(context).blue = val;
+                            BlocProvider.of<GetPriceCubit>(context).blue = val.toString();
                           });
                         }),
                     const Text('No'),
@@ -112,7 +112,7 @@ class _FirstViewBodyState extends State<FirstViewBody> {
                         onChanged: (val) {
                           setState(() {
                             groupValue2 = val;
-                            BlocProvider.of<GetPriceCubit>(context).blue = val;
+                            BlocProvider.of<GetPriceCubit>(context).dulSim = val.toString();
                           });
                         }),
                     const Text('Yes'),
@@ -125,7 +125,7 @@ class _FirstViewBodyState extends State<FirstViewBody> {
                         onChanged: (val) {
                           setState(() {
                             groupValue2 = val;
-                            BlocProvider.of<GetPriceCubit>(context).blue = val;
+                            BlocProvider.of<GetPriceCubit>(context).blue = val.toString();
                           });
                         }),
                     const Text('No'),

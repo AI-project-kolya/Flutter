@@ -39,7 +39,7 @@ class _ThirdViewBodyState extends State<ThirdViewBody> {
               max: 20.0,
               min: 0.0,
               onChanged: (val) {
-                BlocProvider.of<GetPriceCubit>(context).pc = val;
+                BlocProvider.of<GetPriceCubit>(context).pc = val.toString();
               },
               labelText: 'Primary Camera mega pixels',
               keyboardType: TextInputType.number,
@@ -48,7 +48,7 @@ class _ThirdViewBodyState extends State<ThirdViewBody> {
               min: 0.0,
               max: 1960.0,
               onChanged: (val) {
-                BlocProvider.of<GetPriceCubit>(context).pxHeight = val;
+                BlocProvider.of<GetPriceCubit>(context).pxHeight = val.toString();
               },
               labelText: 'Pixel Resolution Height',
               keyboardType: TextInputType.number,
@@ -57,7 +57,7 @@ class _ThirdViewBodyState extends State<ThirdViewBody> {
               min: 500.0,
               max: 2000.0,
               onChanged: (val) {
-                BlocProvider.of<GetPriceCubit>(context).pxWidth = val;
+                BlocProvider.of<GetPriceCubit>(context).pxWidth = val.toString();
               },
               labelText: 'Pixel Resolution Width',
               keyboardType: TextInputType.number,
@@ -66,7 +66,7 @@ class _ThirdViewBodyState extends State<ThirdViewBody> {
               min: 256.0,
               max: 4000.0,
               onChanged: (val) {
-                BlocProvider.of<GetPriceCubit>(context).ram = val;
+                BlocProvider.of<GetPriceCubit>(context).ram = val.toString();
               },
               labelText: 'Random Access Memory',
               keyboardType: TextInputType.number,
@@ -91,7 +91,7 @@ class _ThirdViewBodyState extends State<ThirdViewBody> {
                           setState(() {
                             groupValue1 = val;
                             BlocProvider.of<GetPriceCubit>(context).threeG =
-                                val;
+                                val.toString();
                           });
                         }),
                     const Text('Yes'),
@@ -105,7 +105,7 @@ class _ThirdViewBodyState extends State<ThirdViewBody> {
                           setState(() {
                             groupValue1 = val;
                             BlocProvider.of<GetPriceCubit>(context).threeG =
-                                val;
+                                val.toString();
                           });
                         }),
                     const Text('No'),

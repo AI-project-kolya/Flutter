@@ -15,7 +15,7 @@ class GetPriceCubit extends Cubit<GetPriceState> {
     emit(GetPriceLoading());
     try {
       Response respons = await dio
-          .post('http://127.0.0.1:8000/api/predict_price_range', data: {
+          .post('https://mragaey.com/marwa/api/predict_price_range', data: {
         'blue': blue,
         'battery_power': batteryPower,
         'clock_speed': clockSpeed,
@@ -35,8 +35,8 @@ class GetPriceCubit extends Cubit<GetPriceState> {
         'wifi': wifi,
       });
       emit(GetPriceSucess(priceModel: PriceModel.fromJson(respons.data)));
-    } on DioException catch (e) {
-      emit(GetPriceFailure(errorMessage: e.response?.data["message"]??'oops there is an error'));
+    } on DioException {
+      emit(GetPriceFailure(errorMessage: 'oops there is an error'));
     } catch (e) {
       emit(GetPriceFailure(errorMessage: e.toString()));
     }

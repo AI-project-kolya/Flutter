@@ -39,7 +39,7 @@ class _FourthViewBodyState extends State<FourthViewBody> {
               min: 5.0,
               max: 20.0,
               onChanged: (val) {
-                BlocProvider.of<GetPriceCubit>(context).scH = val;
+                BlocProvider.of<GetPriceCubit>(context).scH = val.toString();
               },
               labelText: 'Screen Height of mobile in cm',
               keyboardType: TextInputType.number,
@@ -48,7 +48,7 @@ class _FourthViewBodyState extends State<FourthViewBody> {
               min: 0.0,
               max: 19.0,
               onChanged: (val) {
-                BlocProvider.of<GetPriceCubit>(context).scW = val;
+                BlocProvider.of<GetPriceCubit>(context).scW = val.toString();
               },
               labelText: 'Screen Width of mobile in cm',
               keyboardType: TextInputType.number,
@@ -73,7 +73,7 @@ class _FourthViewBodyState extends State<FourthViewBody> {
                           setState(() {
                             groupValue1 = val;
                             BlocProvider.of<GetPriceCubit>(context)
-                                .touchScreen = val;
+                                .touchScreen = val.toString();
                           });
                         }),
                     const Text('Yes'),
@@ -87,7 +87,7 @@ class _FourthViewBodyState extends State<FourthViewBody> {
                           setState(() {
                             groupValue1 = val;
                             BlocProvider.of<GetPriceCubit>(context)
-                                .touchScreen = val;
+                                .touchScreen = val.toString();
                           });
                         }),
                     const Text('No'),
@@ -114,7 +114,7 @@ class _FourthViewBodyState extends State<FourthViewBody> {
                         onChanged: (val) {
                           setState(() {
                             groupValue2 = val;
-                            BlocProvider.of<GetPriceCubit>(context).wifi = val;
+                            BlocProvider.of<GetPriceCubit>(context).wifi = val.toString();
                           });
                         }),
                     const Text('Yes'),
@@ -127,7 +127,7 @@ class _FourthViewBodyState extends State<FourthViewBody> {
                         onChanged: (val) {
                           setState(() {
                             groupValue2 = val;
-                            BlocProvider.of<GetPriceCubit>(context).wifi = val;
+                            BlocProvider.of<GetPriceCubit>(context).wifi = val.toString();
                           });
                         }),
                     const Text('No'),

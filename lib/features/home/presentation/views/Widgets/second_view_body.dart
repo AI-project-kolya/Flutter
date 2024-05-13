@@ -40,7 +40,7 @@ class _SecondViewBodyState extends State<SecondViewBody> {
               min: 2.0,
               max: 65.0,
               onChanged: (val) {
-                BlocProvider.of<GetPriceCubit>(context).initMemory = val;
+                BlocProvider.of<GetPriceCubit>(context).initMemory = val.toString();
               },
               keyboardType: TextInputType.number,
             ),
@@ -48,7 +48,7 @@ class _SecondViewBodyState extends State<SecondViewBody> {
               max: 200.0,
               min: 80.0,
               onChanged: (val) {
-                BlocProvider.of<GetPriceCubit>(context).mobileWt = val;
+                BlocProvider.of<GetPriceCubit>(context).mobileWt = val.toString();
               },
               labelText: 'Weight of mobile phone',
               keyboardType: TextInputType.number,
@@ -57,7 +57,7 @@ class _SecondViewBodyState extends State<SecondViewBody> {
               min: 1.0,
               max: 8.0,
               onChanged: (val) {
-                BlocProvider.of<GetPriceCubit>(context).nCores = val;
+                BlocProvider.of<GetPriceCubit>(context).nCores = val.toString();
               },
               labelText: 'Number of cores of processor',
               keyboardType: TextInputType.number,
@@ -81,7 +81,7 @@ class _SecondViewBodyState extends State<SecondViewBody> {
                         onChanged: (val) {
                           setState(() {
                             groupValue1 = val;
-                            BlocProvider.of<GetPriceCubit>(context).fourG = val;
+                            BlocProvider.of<GetPriceCubit>(context).fourG = val.toString();
                           });
                         }),
                     const Text('Yes'),
@@ -94,7 +94,7 @@ class _SecondViewBodyState extends State<SecondViewBody> {
                         onChanged: (val) {
                           setState(() {
                             groupValue1 = val;
-                            BlocProvider.of<GetPriceCubit>(context).fourG = val;
+                            BlocProvider.of<GetPriceCubit>(context).fourG = val.toString();
                           });
                         }),
                     const Text('No'),
