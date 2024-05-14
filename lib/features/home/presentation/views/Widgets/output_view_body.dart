@@ -36,14 +36,14 @@ class OutPutViewBody extends StatelessWidget {
               return Column(
                 children: [
                   const Text(
-                    'Predicition unsuccessfully ✔️',
+                    'Predicition successfully ✔️',
                     style: Styles.textStyle20,
                   ),
                   const SizedBox(
                     height: 60,
                   ),
                   Text(
-                    'price range: ${state.priceModel.priceRange}',
+                    state.priceModel.priceRange,
                     style: Styles.textStyle20,
                   ),
                 ],
