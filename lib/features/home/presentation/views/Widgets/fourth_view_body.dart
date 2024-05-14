@@ -114,7 +114,8 @@ class _FourthViewBodyState extends State<FourthViewBody> {
                         onChanged: (val) {
                           setState(() {
                             groupValue2 = val;
-                            BlocProvider.of<GetPriceCubit>(context).wifi = val.toString();
+                            BlocProvider.of<GetPriceCubit>(context).wifi =
+                                val.toString();
                           });
                         }),
                     const Text('Yes'),
@@ -127,7 +128,8 @@ class _FourthViewBodyState extends State<FourthViewBody> {
                         onChanged: (val) {
                           setState(() {
                             groupValue2 = val;
-                            BlocProvider.of<GetPriceCubit>(context).wifi = val.toString();
+                            BlocProvider.of<GetPriceCubit>(context).wifi =
+                                val.toString();
                           });
                         }),
                     const Text('No'),
@@ -140,9 +142,9 @@ class _FourthViewBodyState extends State<FourthViewBody> {
             ),
             CustomButtom(
               textButtom: 'Finish',
-              onTap: () async {
+              onTap: () {
                 if (mykey.currentState!.validate()) {
-                  await BlocProvider.of<GetPriceCubit>(context).getPrice();
+                  BlocProvider.of<GetPriceCubit>(context).getPrice();
                   navigatetoOutputscreen(context);
                 }
               },
@@ -153,7 +155,7 @@ class _FourthViewBodyState extends State<FourthViewBody> {
     );
   }
 
-  Future<void> navigatetoOutputscreen(context) async {
-    GoRouter.of(context).pushReplacement(AppRouter.kOutPutViewViewPath);
+  void navigatetoOutputscreen(context) {
+    GoRouter.of(context).push(AppRouter.kOutPutViewViewPath);
   }
 }

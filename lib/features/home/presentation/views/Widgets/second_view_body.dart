@@ -40,7 +40,8 @@ class _SecondViewBodyState extends State<SecondViewBody> {
               min: 2.0,
               max: 65.0,
               onChanged: (val) {
-                BlocProvider.of<GetPriceCubit>(context).initMemory = val.toString();
+                BlocProvider.of<GetPriceCubit>(context).initMemory =
+                    val.toString();
               },
               keyboardType: TextInputType.number,
             ),
@@ -48,7 +49,8 @@ class _SecondViewBodyState extends State<SecondViewBody> {
               max: 200.0,
               min: 80.0,
               onChanged: (val) {
-                BlocProvider.of<GetPriceCubit>(context).mobileWt = val.toString();
+                BlocProvider.of<GetPriceCubit>(context).mobileWt =
+                    val.toString();
               },
               labelText: 'Weight of mobile phone',
               keyboardType: TextInputType.number,
@@ -81,7 +83,8 @@ class _SecondViewBodyState extends State<SecondViewBody> {
                         onChanged: (val) {
                           setState(() {
                             groupValue1 = val;
-                            BlocProvider.of<GetPriceCubit>(context).fourG = val.toString();
+                            BlocProvider.of<GetPriceCubit>(context).fourG =
+                                val.toString();
                           });
                         }),
                     const Text('Yes'),
@@ -94,7 +97,8 @@ class _SecondViewBodyState extends State<SecondViewBody> {
                         onChanged: (val) {
                           setState(() {
                             groupValue1 = val;
-                            BlocProvider.of<GetPriceCubit>(context).fourG = val.toString();
+                            BlocProvider.of<GetPriceCubit>(context).fourG =
+                                val.toString();
                           });
                         }),
                     const Text('No'),
@@ -109,8 +113,7 @@ class _SecondViewBodyState extends State<SecondViewBody> {
               textButtom: 'Next',
               onTap: () {
                 if (mykey.currentState!.validate()) {
-                  GoRouter.of(context)
-                      .pushReplacement(AppRouter.kThirdViewViewPath);
+                  GoRouter.of(context).push(AppRouter.kThirdViewViewPath);
                 }
               },
             )

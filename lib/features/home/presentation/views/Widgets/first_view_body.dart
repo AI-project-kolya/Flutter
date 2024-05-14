@@ -141,7 +141,7 @@ class _FirstViewBodyState extends State<FirstViewBody> {
               onTap: () {
                 if (mykey.currentState!.validate()) {
                   GoRouter.of(context)
-                      .pushReplacement(AppRouter.kSecondViewViewPath);
+                      .push(AppRouter.kSecondViewViewPath);
                 }
               },
             )

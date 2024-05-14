@@ -11,58 +11,84 @@ class OutPutViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        BlocBuilder<GetPriceCubit, GetPriceState>(
-          builder: (context, state) {
-            if (state is GetPriceFailure) {
-              return Column(
-                children: [
-                  const Text(
-                    'Predicition unsuccessfully ❌',
-                    style: Styles.textStyle20,
-                  ),
-                  const SizedBox(
-                    height: 60,
-                  ),
-                  Text(
-                    'error message : ${state.errorMessage}',
-                    style: Styles.textStyle20,
-                  ),
-                ],
-              );
-            } else if (state is GetPriceSucess) {
-              return Column(
-                children: [
-                  const Text(
-                    'Predicition successfully ✔️',
-                    style: Styles.textStyle20,
-                  ),
-                  const SizedBox(
-                    height: 60,
-                  ),
-                  Text(
-                    state.priceModel.priceRange,
-                    style: Styles.textStyle20,
-                  ),
-                ],
-              );
-            } else {
-              return const CircularProgressIndicator();
-            }
-          },
-        ),
-        const SizedBox(
-          height: 60,
-        ),
-        CustomButtom(
-          textButtom: 'Again',
-          onTap: () {
-            GoRouter.of(context).pushReplacement(AppRouter.kHomeViewViewPath);
-          },
-        ),
-      ],
+    return BlocBuilder<GetPriceCubit, GetPriceState>(
+      builder: (context, state) {
+        if (state is GetPriceFailure) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                'Predicition unsuccessfully ❌',
+                style: Styles.textStyle20,
+              ),
+              const SizedBox(
+                height: 60,
+              ),
+              Text(
+                'error message : ${state.errorMessage}',
+                style: Styles.textStyle16,
+              ),
+              const SizedBox(
+                height: 60,
+              ),
+              CustomButtom(
+                textButtom: 'Again',
+                onTap: () {
+                  GoRouter.of(context)
+                      .pushReplacement(AppRouter.kHomeViewViewPath);
+                },
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              CustomButtom(
+                textButtom: 'Refresh',
+                onTap: () {
+                  BlocProvider.of<GetPriceCubit>(context).getPrice();
+                },
+              ),
+            ],
+          );
+        } else if (state is GetPriceSucess) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                'Predicition successfully ✔️',
+                style: Styles.textStyle20,
+              ),
+              const SizedBox(
+                height: 60,
+              ),
+              Text(
+                state.priceModel.priceRange,
+                style: Styles.textStyle20,
+              ),
+              const SizedBox(
+                height: 60,
+              ),
+              CustomButtom(
+                textButtom: 'Again',
+                onTap: () {
+                  GoRouter.of(context)
+                      .pushReplacement(AppRouter.kHomeViewViewPath);
+                },
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              CustomButtom(
+                textButtom: 'Refresh',
+                onTap: () {
+                  BlocProvider.of<GetPriceCubit>(context).getPrice();
+                },
+              ),
+            ],
+          );
+        } else {
+          return const Center(child: CircularProgressIndicator());
+        }
+      },
     );
   }
 }

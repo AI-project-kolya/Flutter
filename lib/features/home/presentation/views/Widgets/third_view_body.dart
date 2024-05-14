@@ -48,7 +48,8 @@ class _ThirdViewBodyState extends State<ThirdViewBody> {
               min: 0.0,
               max: 1960.0,
               onChanged: (val) {
-                BlocProvider.of<GetPriceCubit>(context).pxHeight = val.toString();
+                BlocProvider.of<GetPriceCubit>(context).pxHeight =
+                    val.toString();
               },
               labelText: 'Pixel Resolution Height',
               keyboardType: TextInputType.number,
@@ -57,7 +58,8 @@ class _ThirdViewBodyState extends State<ThirdViewBody> {
               min: 500.0,
               max: 2000.0,
               onChanged: (val) {
-                BlocProvider.of<GetPriceCubit>(context).pxWidth = val.toString();
+                BlocProvider.of<GetPriceCubit>(context).pxWidth =
+                    val.toString();
               },
               labelText: 'Pixel Resolution Width',
               keyboardType: TextInputType.number,
@@ -120,8 +122,7 @@ class _ThirdViewBodyState extends State<ThirdViewBody> {
               textButtom: 'Next',
               onTap: () {
                 if (mykey.currentState!.validate()) {
-                  GoRouter.of(context)
-                      .pushReplacement(AppRouter.kFourthViewViewPath);
+                  GoRouter.of(context).push(AppRouter.kFourthViewViewPath);
                 }
               },
             )

@@ -14,26 +14,31 @@ class HomeViewBody extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Center(child: Image.asset(AssetData.kHomeImagePath,fit: BoxFit.fill,)),
+        Center(
+            child: Image.asset(
+          AssetData.kHomeImagePath,
+          fit: BoxFit.fill,
+        )),
         const SizedBox(
           height: 24,
         ),
         const Text(
           'Wan to know average ',
           style: Styles.textStyle20,
-
         ),
         const Text(
           'price of your phone?',
           style: Styles.textStyle20,
-
         ),
         const SizedBox(
           height: 24,
         ),
-         CustomButtom(textButtom: 'Let\'s start',onTap: (){
-          GoRouter.of(context).pushReplacement(AppRouter.kFirstViewViewPath);
-        },),
+        CustomButtom(
+          textButtom: 'Let\'s start',
+          onTap: () {
+            GoRouter.of(context).push(AppRouter.kFirstViewViewPath);
+          },
+        ),
       ],
     );
   }
